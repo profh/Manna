@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Deacon:</strong>
+  <%= @vote.deacon_id %>
+</p>
+
+<p>
+  <strong>Decision:</strong>
+  <%= @vote.decision %>
+</p>
+
+<p>
+  <strong>Case:</strong>
+  <%= @vote.case_id %>
+</p>
+
+<%= link_to 'Edit', edit_vote_path(@vote) %> |
+<%= link_to 'Back', votes_path %>

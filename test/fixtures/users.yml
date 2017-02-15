@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  string: MyString
+  last_name: MyString
+  email: MyString
+  phone: MyString
+  role: MyString
+  is_care_deacon: false
+  active: false
+
+two:
+  first_name: MyString
+  string: MyString
+  last_name: MyString
+  email: MyString
+  phone: MyString
+  role: MyString
+  is_care_deacon: false
+  active: false

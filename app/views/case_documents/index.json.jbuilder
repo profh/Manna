@@ -1,0 +1,1 @@
+json.array! @case_documents, partial: 'case_documents/case_document', as: :case_document
