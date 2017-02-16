@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :phone
       t.string :role
       t.boolean :is_care_deacon
-      t.boolean :active
+      t.boolean :active, default: true
 
       t.timestamps null: false
     end
