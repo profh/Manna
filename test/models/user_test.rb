@@ -39,4 +39,21 @@ class UserTest < ActiveSupport::TestCase
   should_not allow_value(10).for(:role)
   should_not allow_value("vp").for(:role)
   should_not allow_value(nil).for(:role)
+
+  context "Creating a context for users" do
+    setup do
+      create_users
+      create_cases
+      create_votes
+    end
+
+    teardown do
+      remove_votes
+      remove_cases
+      remove_users
+    end
+
+    #running the tests:
+
+  end
 end
