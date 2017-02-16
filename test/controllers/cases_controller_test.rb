@@ -5,11 +5,11 @@ class CasesControllerTest < ActionController::TestCase
     @case = cases(:one)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:cases)
-  end
+  # test "should get index" do
+  #   get :index
+  #   assert_response :success
+  #   assert_not_nil assigns(:cases)
+  # end
 
   test "should get new" do
     get :new

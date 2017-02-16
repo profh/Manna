@@ -24,7 +24,7 @@ FactoryGirl.define do
     decision "yes"
   end
 
-  facotory :document do
+  factory :document do
     name "I9"
   end
 
