@@ -8,7 +8,7 @@ class UserTest < ActiveSupport::TestCase
   should validate_presence_of(:last_name)
   should validate_presence_of(:role)
   should validate_presence_of(:email)
-
+  should validate_presence_of(:is_care_deacon)
 
   #email
   should validate_uniqueness_of(:email)
@@ -31,5 +31,12 @@ class UserTest < ActiveSupport::TestCase
   should_not allow_value("412/268/3259").for(:phone)
   should_not allow_value("412-2683-259").for(:phone)
 
-
+  #role
+  should allow_value("admin").for(:role)
+  should allow_value("deacon").for(:role)
+  should_not allow_value("bad").for(:role)
+  should_not allow_value("hacker").for(:role)
+  should_not allow_value(10).for(:role)
+  should_not allow_value("vp").for(:role)
+  should_not allow_value(nil).for(:role)
 end
