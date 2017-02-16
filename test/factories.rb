@@ -11,7 +11,7 @@ FactoryGirl.define do
   end
 
   factory :case do
-    client_name "Johnny Wu"
+    client_name "Gordon Ramsay"
     date_submitted Time.now
     summary "Refer to documents"
     status "submitted"

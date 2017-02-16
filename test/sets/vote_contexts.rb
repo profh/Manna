@@ -1,11 +1,19 @@
 module Contexts
   module VoteContexts
     def create_votes
-
+      @vote_jason = FactoryGirl.create(:vote, user: @jason, case: @case_gordon, decision: "yes")
+      @vote_jason1 = FactoryGirl.create(:vote, user: @jason, case: @case_review1, decision: "")
+      @vote_jason2 = FactoryGirl.create(:vote, user: @jason, case: @case_review, decision: "no")
+      @vote_paula = FactoryGirl.create(:vote, user: @paula, case: @case_check_processed, decision: "yes")
+      @vote_larry = FactoryGirl.create(:vote, user: @larry, case: @case_check_signed, decision: "yes")
     end
 
     def remove_votes
-
+      @vote_jason.destroy
+      @vote_jason1.destroy
+      @vote_jason2.destroy
+      @vote_paula.destroy
+      @vote_larry.destroy
     end
 
   end
