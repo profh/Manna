@@ -2,11 +2,11 @@ FactoryGirl.define do
   factory :user do
     first_name "Jason"
     last_name "Chen"
-    email "jasonc95014@gmail.com"
+    email "jason95014@gmail.com"
     password_digest "meh"
     phone "4089315510"
     role "admin"
-    is_care_deacon "false"
+    is_care_deacon false
     active true
   end
 

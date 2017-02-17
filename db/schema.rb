@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20170215003253) do
     t.string   "password_digest"
     t.string   "phone"
     t.string   "role"
-    t.boolean  "is_care_deacon"
+    t.boolean  "is_care_deacon",  default: true
     t.boolean  "active",          default: true
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false

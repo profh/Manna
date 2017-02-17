@@ -8,7 +8,6 @@ class UserTest < ActiveSupport::TestCase
   should validate_presence_of(:last_name)
   should validate_presence_of(:role)
   should validate_presence_of(:email)
-  should validate_presence_of(:is_care_deacon)
 
   #email
   should validate_uniqueness_of(:email)
@@ -59,8 +58,8 @@ class UserTest < ActiveSupport::TestCase
       assert_equal ["Troy"], User.inactive.map{|e| e.last_name}.sort
     end
     should "show that there are three active users" do
-      assert_equal 3, User.inactive.size
-      assert_equal ["Chen, Heimann, Wu"], User.active.map{|e| e.last_name}.sort
+      assert_equal 3, User.active.size
+      assert_equal ["Chen", "Heimann", "Wu"], User.active.map{|e| e.last_name}.sort
     end
 
   end
