@@ -43,11 +43,11 @@ class UserTest < ActiveSupport::TestCase
     setup do
       create_users
       create_cases
-      # create_votes
+      create_votes
     end
 
     teardown do
-      # remove_votes
+      remove_votes
       remove_cases
       remove_users
     end
