@@ -1,9 +1,8 @@
 require 'test_helper'
 
 class VoteTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  should belong_to(:deacon)
+  should belong_to(:case)
 
   context "Creating a context for votes" do
     setup do

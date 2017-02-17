@@ -71,5 +71,17 @@ class CaseTest < ActiveSupport::TestCase
       assert_equal 1, Case.check_processed.size
       assert_equal ["Catherine Zeng"], Case.check_processed.map{|e| e.client_name}
     end
+
+    should "show that the for_deacon scope works" do
+      assert_equal 2, Case.for_deacon(@jason.id).size
+    end
+
+    should "show that the for_client scope works" do
+      assert_equal ["approved"], Case.for_client("Thomas Lu").map{|e| e.status}
+    end
+
+    should "show that the by_client_name scope works" do
+      assert_equal ["Catherine Zeng", "Evan Li", "Gordon Ramsay", "Jonathan Tsao", "Molly Chou", "Spencer Poon", "Thomas Lu"], Case.by_client_name.map{|e| e.client_name}
+    end
   end
 end

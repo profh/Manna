@@ -1,5 +1,5 @@
 class Case < ActiveRecord::Base
-  belongs_to :deacon, class_name: "User", foreign_key: "user_id"
+  belongs_to :deacon, class_name: "User", foreign_key: "deacon_id"
   has_many :votes
 
   validates_presence_of :client_name, :summary
@@ -13,7 +13,9 @@ class Case < ActiveRecord::Base
   scope :rejected,        -> { where(status: "rejected")}
   scope :check_signed,        -> { where(status: "check signed")}
   scope :check_processed,        -> { where(status: "check processed")}
-
+  scope :for_deacon,       -> (user_id) {where(deacon_id: user_id) }
+  scope :for_client,      -> (client_name) {where("client_name LIKE ?", client_name + "%")}
+  scope :by_client_name,         -> { order("client_name ASC") }
   #methods
 
 end
