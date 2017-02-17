@@ -66,5 +66,19 @@ class UserTest < ActiveSupport::TestCase
       assert_equal ["Chen", "Heimann", "Wu"], User.active.map{|e| e.last_name}.sort
     end
 
+    should "show that there is 1 care deacon" do
+      assert_equal 1, User.care_deacons.size
+      assert_equal ["Wu"], User.care_deacons.map{|e| e.last_name}.sort
+    end
+
+    should "show that there are 3 financial deacons" do
+      assert_equal 3, User.financial_deacons.size
+      assert_equal ["Chen", "Heimann", "Troy"], User.financial_deacons.map{|e| e.last_name}.sort
+    end
+
+    should "show that the alphabetical scope works" do
+      assert_equal 4, User.alphabetical.size
+      assert_equal ["Chen", "Heimann", "Troy", "Wu"], User.alphabetical.map{|e| e.last_name}.sort
+    end
   end
 end

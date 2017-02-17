@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
   #scopes
   scope :active,          -> { where(active: true) }
   scope :inactive,        -> { where(active: false) }
-  scope :deacons,        -> { where(role: 'deacon') }
-  scope :admins,          -> { where(role: 'admin') }
+  scope :care_deacons,        -> { where(is_care_deacon: true) }
+  scope :financial_deacons,   -> { where(is_care_deacon: false) }
   scope :alphabetical,    -> { order('last_name, first_name') }
 
 end
