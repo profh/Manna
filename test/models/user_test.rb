@@ -43,17 +43,25 @@ class UserTest < ActiveSupport::TestCase
   context "Creating a context for users" do
     setup do
       create_users
-      create_cases
-      create_votes
+      # create_cases
+      # create_votes
     end
 
     teardown do
-      remove_votes
-      remove_cases
-      remove_users
+      # remove_votes
+      # remove_cases
+      # remove_users
     end
 
     #running the tests:
+    should "show that there is one inactive user" do
+      assert_equal 1, User.inactive.size
+      assert_equal ["Troy"], User.inactive.map{|e| e.last_name}.sort
+    end
+    should "show that there are three active users" do
+      assert_equal 3, User.inactive.size
+      assert_equal ["Chen, Heimann, Wu"], User.active.map{|e| e.last_name}.sort
+    end
 
   end
 end

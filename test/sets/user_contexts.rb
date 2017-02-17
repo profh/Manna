@@ -9,10 +9,10 @@ module Contexts
     end
 
     def remove_users
-      @jason.destroy
-      @jon.destroy
-      @larry.destroy
       @paula.destroy
+      @larry.destroy
+      @jon.destroy
+      @jason.destroy
     end
 
   end

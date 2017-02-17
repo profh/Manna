@@ -9,11 +9,11 @@ module Contexts
     end
 
     def remove_votes
-      @vote_jason.destroy
-      @vote_jason1.destroy
-      @vote_jason2.destroy
-      @vote_paula.destroy
       @vote_larry.destroy
+      @vote_paula.destroy
+      @vote_jason2.destroy
+      @vote_jason1.destroy
+      @vote_jason.destroy
     end
 
   end
