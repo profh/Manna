@@ -80,5 +80,13 @@ class UserTest < ActiveSupport::TestCase
       assert_equal 4, User.alphabetical.size
       assert_equal ["Chen", "Heimann", "Troy", "Wu"], User.alphabetical.map{|e| e.last_name}.sort
     end
+
+    should "show that the name method works" do
+      assert_equal "Chen, Jason", @jason.name
+    end
+
+    should "show that the proper_name method works" do
+      assert_equal "Jason Chen", @jason.proper_name
+    end
   end
 end

@@ -15,4 +15,13 @@ class User < ActiveRecord::Base
   scope :financial_deacons,   -> { where(is_care_deacon: false) }
   scope :alphabetical,    -> { order('last_name, first_name') }
 
+  #methods
+  def name
+    "#{last_name}, #{first_name}"
+  end
+
+  def proper_name
+    "#{first_name} #{last_name}"
+  end
+
 end
