@@ -12,14 +12,14 @@ FactoryGirl.define do
 
   factory :case do
     client_name "Gordon Ramsay"
-    date_submitted Time.now
+    date_submitted 2.days.ago.to_date
     summary "Refer to documents"
     status "submitted"
-    association :user
+    association :deacon, factory: :user
   end
 
   factory :vote do
-    association :user
+    association :deacon, factory: :user
     association :case
     decision "yes"
   end

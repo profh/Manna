@@ -42,14 +42,14 @@ class UserTest < ActiveSupport::TestCase
   context "Creating a context for users" do
     setup do
       create_users
-      # create_cases
+      create_cases
       # create_votes
     end
 
     teardown do
       # remove_votes
-      # remove_cases
-      # remove_users
+      remove_cases
+      remove_users
     end
 
     #running the tests:
