@@ -44,9 +44,13 @@ class UserTest < ActiveSupport::TestCase
       create_users
       create_cases
       create_votes
+      # create_documents
+      # create_case_documents
     end
 
     teardown do
+      # remove_case_documents
+      # remove_documents
       remove_votes
       remove_cases
       remove_users
