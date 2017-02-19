@@ -16,6 +16,9 @@ class Case < ActiveRecord::Base
   scope :for_deacon,       -> (user_id) {where(deacon_id: user_id) }
   scope :for_client,      -> (client_name) {where("client_name LIKE ?", client_name + "%")}
   scope :by_client_name,         -> { order("client_name ASC") }
+
   #methods
+
+
 
 end
