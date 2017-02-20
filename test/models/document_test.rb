@@ -3,9 +3,6 @@ require 'test_helper'
 class DocumentTest < ActiveSupport::TestCase
   
 
-  # test "the truth" do
-  #   assert true
-  # end
   context "Creating a context for users" do
     setup do
       create_users
