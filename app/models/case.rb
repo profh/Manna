@@ -1,6 +1,8 @@
 class Case < ActiveRecord::Base
   belongs_to :deacon, class_name: "User", foreign_key: "deacon_id"
   has_many :votes
+  has_many :case_documents
+  has_many :documents, through: :case_documents
 
   validates_presence_of :client_name, :summary
   validates_inclusion_of :status, in: %w[submitted review\ in\ progress approved rejected check\ signed check\ processed], message: "is not an option"

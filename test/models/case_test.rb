@@ -3,6 +3,8 @@ require 'test_helper'
 class CaseTest < ActiveSupport::TestCase
   should belong_to(:deacon)
   should have_many(:votes)
+  should have_many(:case_documents)
+  should have_many(:documents).through(:case_documents)
 
   should validate_presence_of(:client_name)
   should validate_presence_of(:summary)
