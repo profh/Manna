@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class CaseDocumentTest < ActiveSupport::TestCase
-  should belong_to(:document)
-  should belong_to(:case)
+  should belong_to :document
+  should belong_to :case
 
   context "Creating a context for users" do
     setup do
