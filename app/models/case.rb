@@ -20,7 +20,7 @@ class Case < ActiveRecord::Base
   scope :by_client_name,         -> { order("client_name ASC") }
 
   #methods
-
+  
 
 
 end

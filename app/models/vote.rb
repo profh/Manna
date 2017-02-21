@@ -2,7 +2,7 @@ class Vote < ActiveRecord::Base
   belongs_to :deacon, class_name: "User", foreign_key: "deacon_id"
   belongs_to :case
 
-  validates_inclusion_of :decision, in: %w[yes no], :allow_blank => true, :allow_nil => true, message: "is not an option"
+  validates_inclusion_of :decision, in: %w[yes no], :allow_blank => true, message: "is not an option"
 
   #scopes
   scope :yes, -> { where(decision: "yes") }
