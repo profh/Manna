@@ -88,5 +88,9 @@ class UserTest < ActiveSupport::TestCase
     should "show that the proper_name method works" do
       assert_equal "Jason Chen", @jason.proper_name
     end
+
+    should "shows that Ben's phone is stripped of non-digits" do
+      assert_equal "4089315510", @jason.phone
+    end
   end
 end

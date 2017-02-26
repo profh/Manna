@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  before_save :reformat_phone
+
   has_many :votes, through: :cases
   has_many :cases, class_name: "Case", foreign_key: "deacon_id"
 
@@ -25,6 +27,13 @@ class User < ActiveRecord::Base
 
   def proper_name
     "#{first_name} #{last_name}"
+  end
+
+  private
+  def reformat_phone
+    phone = self.phone.to_s  # change to string in case input as all numbers
+    phone.gsub!(/[^0-9]/,"") # strip all non-digits
+    self.phone = phone       # reset self.phone to new string
   end
 
 end
