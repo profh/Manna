@@ -15,6 +15,7 @@ FactoryGirl.define do
     date_submitted 2.days.ago.to_date
     summary "Refer to documents"
     status "submitted"
+    subject "Paying rent"
     association :deacon, factory: :user
   end
 

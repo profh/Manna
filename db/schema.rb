@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170215003253) do
     t.string   "notes"
     t.string   "status"
     t.integer  "deacon_id"
+    t.string   "subject"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end

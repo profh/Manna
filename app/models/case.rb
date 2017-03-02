@@ -4,7 +4,7 @@ class Case < ActiveRecord::Base
   has_many :case_documents
   has_many :documents, through: :case_documents
 
-  validates_presence_of :client_name, :summary
+  validates_presence_of :client_name, :summary, :subject
   validates_inclusion_of :status, in: %w[submitted review\ in\ progress approved rejected check\ signed check\ processed], message: "is not an option"
 
   #scopes
@@ -20,7 +20,7 @@ class Case < ActiveRecord::Base
   scope :by_client_name,         -> { order("client_name ASC") }
 
   #methods
-  
+
 
 
 end

@@ -8,6 +8,7 @@ class CaseTest < ActiveSupport::TestCase
 
   should validate_presence_of(:client_name)
   should validate_presence_of(:summary)
+  should validate_presence_of(:subject)
 
   should allow_value("submitted").for(:status)
   should allow_value("review in progress").for(:status)

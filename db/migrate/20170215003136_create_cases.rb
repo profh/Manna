@@ -7,7 +7,7 @@ class CreateCases < ActiveRecord::Migration
       t.string :notes
       t.string :status
       t.integer :deacon_id
-
+      t.string :subject
       t.timestamps null: false
     end
   end
