@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/helios-technologies/skeleton-rails
+  revision: 6e46649d29006643b33c95b82bc9d0e28df2f8cc
+  specs:
+    skeleton-rails (1.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -289,6 +295,7 @@ DEPENDENCIES
   simple_form (= 3.2.1)
   simplecov (= 0.11.2)
   single_test (= 0.6.0)
+  skeleton-rails!
   spring
   sqlite3
   thin (= 1.6.4)
