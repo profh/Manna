@@ -145,6 +145,7 @@ GEM
       metaclass (~> 0.0.1)
     multi_json (1.12.1)
     multi_test (0.1.2)
+    nested_form (0.3.2)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     public_suffix (2.0.5)
@@ -277,6 +278,7 @@ DEPENDENCIES
   minitest-rails (= 2.2.0)
   minitest-reporters (= 1.1.7)
   mocha (= 1.1.0)
+  nested_form
   nokogiri (= 1.6.7.2)
   quiet_assets (= 1.1.0)
   rails (= 4.2.5)

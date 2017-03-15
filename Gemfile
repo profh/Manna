@@ -34,6 +34,8 @@ gem 'will_paginate', '3.1.0'
 gem 'foundation-rails', '5.5.3.2'
 gem 'font-awesome-sass-rails', '3.0.2.2'
 gem 'geocoder'
+gem 'nested_form'
+
 
 
 group :development, :test do
