@@ -4,7 +4,11 @@ class VotesController < ApplicationController
   # GET /votes
   # GET /votes.json
   def index
-    @votes = Vote.all
+    if logged_in?
+      @votes = Vote.all
+    else
+      redirect_to home_path
+    end
   end
 
   # GET /votes/1

@@ -4,12 +4,13 @@ class CasesController < ApplicationController
   # GET /cases
   # GET /cases.json
   def index
-    @cases = Case.all
+    @case = Case.for_deacon(user.id).chronological.paginate(page: params[:page]).per_page(10)
   end
 
   # GET /cases/1
   # GET /cases/1.json
   def show
+
   end
 
   # GET /cases/new

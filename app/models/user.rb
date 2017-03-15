@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   before_save :reformat_phone
+  has_secure_password
 
   has_many :votes, through: :cases
   has_many :cases, class_name: "Case", foreign_key: "deacon_id"
@@ -27,6 +28,10 @@ class User < ActiveRecord::Base
 
   def proper_name
     "#{first_name} #{last_name}"
+  end
+
+  def self.authenticate(email,password)
+    find_by_email(email).try(:authenticate, password)
   end
 
   private

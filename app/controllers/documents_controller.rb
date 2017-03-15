@@ -4,7 +4,11 @@ class DocumentsController < ApplicationController
   # GET /documents
   # GET /documents.json
   def index
-    @documents = Document.all
+    if logged_in?
+      @documents = Document.all
+    else
+      redirect_to home_path
+    end
   end
 
   # GET /documents/1
