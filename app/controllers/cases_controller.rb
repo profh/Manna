@@ -4,13 +4,19 @@ class CasesController < ApplicationController
   # GET /cases
   # GET /cases.json
   def index
-    @case = Case.for_deacon(user.id).chronological.paginate(page: params[:page]).per_page(10)
+    #if logged_in, can only see own if care_d or can see all of them if financial_d
+    if logged_in?
+      if current_user.is_care_deacon?
+        @case = Case.for_deacon(user_id).chronological.paginate(page: params[:page]).per_page(10)
+      else
+        @case = Case.chronological.paginate(page: params[:page]).per_page(10)
+      end
+    end
   end
 
   # GET /cases/1
   # GET /cases/1.json
   def show
-
   end
 
   # GET /cases/new
@@ -26,29 +32,24 @@ class CasesController < ApplicationController
   # POST /cases.json
   def create
     @case = Case.new(case_params)
-
-    respond_to do |format|
-      if @case.save
-        format.html { redirect_to @case, notice: 'Case was successfully created.' }
-        format.json { render :show, status: :created, location: @case }
-      else
-        format.html { render :new }
-        format.json { render json: @case.errors, status: :unprocessable_entity }
-      end
+    if @case.save
+      # if saved to database
+      flash[:notice] = "Successfully created #{@case.name}."
+      redirect_to @case # go to show case page
+    else
+      # return to the 'new' form
+      render action: 'new'
     end
   end
 
   # PATCH/PUT /cases/1
   # PATCH/PUT /cases/1.json
   def update
-    respond_to do |format|
-      if @case.update(case_params)
-        format.html { redirect_to @case, notice: 'Case was successfully updated.' }
-        format.json { render :show, status: :ok, location: @case }
-      else
-        format.html { render :edit }
-        format.json { render json: @case.errors, status: :unprocessable_entity }
-      end
+    if @case.update_attributes(case_params)
+      flash[:notice] = "Successfully updated #{@case.name}."
+      redirect_to @case
+    else
+      render action: 'edit'
     end
   end
 
@@ -56,10 +57,8 @@ class CasesController < ApplicationController
   # DELETE /cases/1.json
   def destroy
     @case.destroy
-    respond_to do |format|
-      format.html { redirect_to cases_url, notice: 'Case was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:notice] = "Successfully removed #{@case.name} from the system."
+    redirect_to cases_url
   end
 
   private

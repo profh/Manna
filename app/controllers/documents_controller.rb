@@ -11,8 +11,6 @@ class DocumentsController < ApplicationController
     end
   end
 
-  # GET /documents/1
-  # GET /documents/1.json
   def show
   end
 
