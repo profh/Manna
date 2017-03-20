@@ -9,7 +9,6 @@ Rails.application.routes.draw do
 
   get 'home' => 'home#home', as: :home
 
-
   get 'user/edit' => 'users#edit', :as => :edit_current_user
   get 'signup' => 'users#new', :as => :signup
   get 'login' => 'sessions#new', :as => :login

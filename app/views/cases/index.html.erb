@@ -1,3 +1,4 @@
+<% if logged_in? %>
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Cases</h1>
@@ -16,22 +17,27 @@
   </thead>
 
   <tbody>
-    <% @cases.each do |case| %>
+    <% for c in @cases %>
       <tr>
-        <td><%= case.client_name %></td>
-        <td><%= case.date_submitted %></td>
-        <td><%= case.summary %></td>
-        <td><%= case.notes %></td>
-        <td><%= case.status %></td>
-        <td><%= case.deacon_id %></td>
-        <td><%= link_to 'Show', case %></td>
-        <td><%= link_to 'Edit', edit_case_path(case) %></td>
-        <td><%= link_to 'Destroy', case, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= c.client_name %></td>
+        <td><%= c.date_submitted %></td>
+        <td><%= c.summary %></td>
+        <td><%= c.notes %></td>
+        <td><%= c.status %></td>
+        <td><%= c.deacon_id %></td>
+        <td><%= link_to 'Show', c %></td>
+        <td><%= link_to 'Edit', edit_case_path(c) %></td>
+        <td><%= link_to 'Destroy', c, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
+
 </table>
 
 <br>
 
 <%= link_to 'New Case', new_case_path %>
+<% else %>
+  <p>please log in</p>
+
+<% end %>
