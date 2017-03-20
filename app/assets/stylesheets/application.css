@@ -16,24 +16,49 @@
  *= require skeleton
  */
 
-@font-face {
-  font-family: Avenir;
-  src: font-url('/assets/fonts/AvenirNextLTPro-Regular.otf') format('opentype');
+/*@font-face {
+  font-family: 'A';
+  src: font-url('AvenirNextLTPro-Regular.otf') format('opentype');
   font-weight: normal;
 font-style: normal;
-}
+}*/
 
-@font-face {
-  font-family: Vidaloka;
-  src: font-url('/assets/fonts/Vidaloka-Regular.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
+@font-face { font-family: testfont; src: url('AvenirNextLTPro-Regular.otf'); }
+
+@font-face { font-family: testfont2; src: url('henri-didot.regular.otf'); }
 
 *{
-  font-family: Avenir;
+  font-family: testfont ;
+}
+a:link {
+    text-decoration: none;
+}
+
+footer{
+  font-family: testfont;
+  text-align: center;
 }
 
 div#title h1{
-  font-family: Vidaloka, Courier;
+  font-family: testfont2;
+  letter-spacing: 1rem;
+  font-size: 7.5rem;
+  padding-top: 10%;
+}
+#nav{
+  height: 100%;
+}
+
+#nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  margin-left: 3rem;
+  float: right;
+}
+#nav ul{
+  margin-bottom: 5rem;
+}
+
+#login {
+  float: right;
 }
