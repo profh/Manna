@@ -15,3 +15,18 @@
  *= require normalize
  *= require skeleton
  */
+
+@font-face {
+  font-family: Avenir;
+  src: font-url('/assets/fonts/AvenirNextLTPro-Regular.otf') format('opentype');
+  font-weight: normal;
+font-style: normal;
+}
+
+*{
+  font-family: Avenir;
+}
+
+div#title h1{
+  font-family: Didot;
+}
