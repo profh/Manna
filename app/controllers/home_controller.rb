@@ -5,7 +5,7 @@ class HomeController < ApplicationController
       if current_user.is_care_deacon?
         @cases = Case.for_deacon(current_user.id).chronological
       else
-        # @need_review 
+        # @need_review
         # @reviewed
       end
     end
