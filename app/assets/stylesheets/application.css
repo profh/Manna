@@ -23,10 +23,17 @@
 font-style: normal;
 }
 
+@font-face {
+  font-family: Vidaloka;
+  src: font-url('/assets/fonts/Vidaloka-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 *{
   font-family: Avenir;
 }
 
 div#title h1{
-  font-family: Didot;
+  font-family: Vidaloka, Courier;
 }
