@@ -5,13 +5,15 @@ class CasesController < ApplicationController
   # GET /cases.json
   def index
     #if logged_in, can only see own if care_d or can see all of them if financial_d
-    if logged_in?
-      if current_user.is_care_deacon?
-        @cases = Case.for_deacon(user_id).chronological.paginate(page: params[:page]).per_page(10)
-      else
-        @cases = Case.chronological.paginate(page: params[:page]).per_page(10)
-      end
-    end
+    # if logged_in?
+    #   if current_user.is_care_deacon?
+    #     @cases = Case.for_deacon(user_id).chronological.paginate(page: params[:page]).per_page(10)
+    #   else
+    #     @cases = Case.chronological.paginate(page: params[:page]).per_page(10)
+    #   end
+    # end
+
+    @cases = Case.chronological.paginate(page: params[:page]).per_page(10)
   end
 
   # GET /cases/1
@@ -34,7 +36,7 @@ class CasesController < ApplicationController
     @case = Case.new(case_params)
     if @case.save
       # if saved to database
-      flash[:notice] = "Successfully created #{@case.name}."
+      flash[:notice] = "Successfully created case: #{@case.subject} for #{@case.client_name}."
       redirect_to @case # go to show case page
     else
       # return to the 'new' form
@@ -45,19 +47,18 @@ class CasesController < ApplicationController
   # PATCH/PUT /cases/1
   # PATCH/PUT /cases/1.json
   def update
-    if @case.update_attributes(case_params)
-      flash[:notice] = "Successfully updated #{@case.name}."
-      redirect_to @case
-    else
-      render action: 'edit'
-    end
+    if @case.update(case_params)
+         redirect_to case_path(@case), notice: "Successfully updated case: #{@case.subject} for #{@case.client_name}."
+       else
+         render action: 'edit'
+       end
   end
 
   # DELETE /cases/1
   # DELETE /cases/1.json
   def destroy
     @case.destroy
-    flash[:notice] = "Successfully removed #{@case.name} from the system."
+    flash[:notice] = "Successfully removed case: #{@case.subject} for #{@case.client_name} from the system."
     redirect_to cases_url
   end
 
