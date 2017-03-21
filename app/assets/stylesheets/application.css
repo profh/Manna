@@ -17,13 +17,13 @@
 
  */
 
-/*
+
 @font-face { font-family: AvenirNextLTPro; src: url('AvenirNextLTPro-Regular.otf'); }
 
 @font-face { font-family: Henri-didot; src: url('henri-didot.regular.otf'); }
 
 *{
-  font-family: AvinerNextLTPro;
+  font-family: AvenirNextLTPro;
 }
 
 html, body{
@@ -75,4 +75,4 @@ p#blurb{
 
 #login {
   float: right;
-}*/
+}
