@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by_email(params[:email])
+    puts "user: #{user.to_yaml}"
     if user && User.authenticate(params[:email], params[:password])
       session[:user_id] = user.id
       redirect_to home_path, notice: "Logged in!"

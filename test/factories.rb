@@ -3,7 +3,8 @@ FactoryGirl.define do
     first_name "Jason"
     last_name "Chen"
     email "jason95014@gmail.com"
-    password_digest "meh"
+    password_confirmation "meh"
+    password "meh"
     phone "4089315510"
     role "admin"
     is_care_deacon false
