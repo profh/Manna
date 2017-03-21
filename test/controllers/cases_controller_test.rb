@@ -26,7 +26,7 @@ class CasesControllerTest < ActionController::TestCase
       post :create, case: { client_name: "Kevin Louie", date_submitted: Time.now, summary: "Lorem ipsum", status: "review in progress", subject: "New Car", deacon: @jason }
     end
     assert_redirected_to case_path(assigns(:case))
-    assert_equal "Successfully created case: new car for Gordon Ramsay.", flash[:notice]
+    assert_equal "Successfully created case: New Car for Kevin Louie.", flash[:notice]
     post :create, case: { date_submitted: 2.days.ago.to_date, summary: "Lorem ipsum", status: "review in progress", subject: "New Car", deacon: @jason }
     assert_template :new
   end
