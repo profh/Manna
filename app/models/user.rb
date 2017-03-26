@@ -30,6 +30,11 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def role?(authorized_role)
+      return false if self.nil?
+      self.role.to_sym == authorized_role
+    end
+
   def self.authenticate(email,password)
     find_by_email(email).try(:authenticate, password)
   end

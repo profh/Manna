@@ -92,5 +92,13 @@ class UserTest < ActiveSupport::TestCase
     should "shows that Ben's phone is stripped of non-digits" do
       assert_equal "4089315510", @jason.phone
     end
+
+
+    should "have working role? method to be used in ability.rb" do
+      assert_equal true, @jason.role?(:admin)
+      assert_equal true, @jon.role?(:deacon)
+      assert_equal false, @jason.is_care_deacon?
+      assert_equal true, @jon.is_care_deacon?
+    end
   end
 end
