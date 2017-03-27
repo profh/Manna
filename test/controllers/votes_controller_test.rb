@@ -26,7 +26,13 @@ class VotesControllerTest < ActionController::TestCase
   end
 
   test "should create vote" do
-
+    assert_difference('Vote.count') do
+      post :create, vote: { deacon: @jon, case: @case_gordon, decision: "yes" }
+    end
+    assert_redirected_to votes_path
+    assert_equal "Successfully created vote.", flash[:notice]
+    post :create, vote: { case: @case_gordon, decision: nil}
+    assert_template :new
   end
 
 
@@ -36,7 +42,11 @@ class VotesControllerTest < ActionController::TestCase
   end
 
   test "should update vote" do
-
+    patch :update, id: @vote_jason1, vote: { deacon: @jason, case: @case_review1, decision: "yes"}
+    assert_redirected_to votes_path
+    assert_equal "Successfully updated vote.", flash[:notice]
+    patch :update, id: @vote_jason1, vote: { case: @case_review1, decision: nil }
+    assert_template :edit
   end
 
   test "should destroy vote" do

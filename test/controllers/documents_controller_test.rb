@@ -38,4 +38,20 @@ class DocumentsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should update document" do
+    patch :update, id: @doc1, document: { name: "W4"}
+    assert_redirected_to documents_path
+    assert_equal "Successfully updated document.", flash[:notice]
+    patch :update, id: @doc1, document: { name: nil }
+    assert_template :edit
+  end
+
+  test "should destroy document" do
+    assert_difference('Document.count', -1) do
+      delete :destroy, id: @doc1
+    end
+    assert_redirected_to documents_path
+    assert_equal "Successfully removed document.", flash[:notice]
+  end
+
 end

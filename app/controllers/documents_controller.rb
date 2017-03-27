@@ -49,7 +49,7 @@ class DocumentsController < ApplicationController
   # DELETE /documents/1.json
   def destroy
     @document.destroy
-    redirect_to flavors_path, notice: "successfully removed document."
+    redirect_to documents_path, notice: "Successfully removed document."
   end
 
   private

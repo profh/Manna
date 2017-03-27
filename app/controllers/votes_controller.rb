@@ -16,12 +16,23 @@ class VotesController < ApplicationController
   end
 
   def create
+    @vote = Vote.new(vote_params)
 
+    if @vote.save
+      redirect_to votes_path, notice: "Successfully created vote."
+    else
+      render action: 'new'
+    end
   end
 
   def update
-
+    if @vote.update(vote_params)
+      redirect_to votes_path, notice: "Successfully updated vote."
+    else
+      render action: 'edit'
+    end
   end
+
 
   def destroy
     @vote.destroy
