@@ -6,6 +6,8 @@ class Case < ActiveRecord::Base
 
   validates_presence_of :client_name, :summary, :subject
   validates_inclusion_of :status, in: %w[submitted review\ in\ progress approved rejected check\ signed check\ processed], message: "is not an option"
+  accepts_nested_attributes_for :documents, reject_if: lambda { |document| document[:name].blank? }, allow_destroy: true
+
 
   #scopes
   scope :chronological,    -> { order('date_submitted DESC') }
@@ -20,7 +22,6 @@ class Case < ActiveRecord::Base
   scope :by_client_name,         -> { order("client_name ASC") }
 
   #methods
-
 
 
 end

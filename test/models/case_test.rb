@@ -22,6 +22,8 @@ class CaseTest < ActiveSupport::TestCase
   should_not allow_value("vp").for(:status)
   should_not allow_value(nil).for(:status)
 
+  should accept_nested_attributes_for(:documents).allow_destroy(true)
+
   context "Creating a context for users" do
     setup do
       create_users
@@ -86,5 +88,6 @@ class CaseTest < ActiveSupport::TestCase
     should "show that the by_client_name scope works" do
       assert_equal ["Catherine Zeng", "Evan Li", "Gordon Ramsay", "Jonathan Tsao", "Molly Chou", "Spencer Poon", "Thomas Lu"], Case.by_client_name.map{|e| e.client_name}
     end
+
   end
 end

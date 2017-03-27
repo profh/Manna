@@ -5,6 +5,7 @@ class DocumentTest < ActiveSupport::TestCase
   should have_many(:cases).through(:case_documents)
   should validate_presence_of(:name)
 
+
   context "Creating a context for users" do
     setup do
       create_users

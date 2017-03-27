@@ -34,6 +34,8 @@ class VoteTest < ActiveSupport::TestCase
 
     should "show all votes that say no" do
       assert_equal 1, Vote.no.size
+      assert_equal "Paying rent", @vote_jason.case.subject
+      assert_equal "PaulaT@gmail.com", @vote_paula.deacon.email
     end
 
   end

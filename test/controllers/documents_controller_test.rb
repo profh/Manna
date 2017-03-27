@@ -1,49 +1,41 @@
-# require 'test_helper'
-#
-# class DocumentsControllerTest < ActionController::TestCase
-#   setup do
-#     @document = documents(:one)
-#   end
-#
-#   test "should get index" do
-#     get :index
-#     assert_response :success
-#     assert_not_nil assigns(:documents)
-#   end
-#
-#   test "should get new" do
-#     get :new
-#     assert_response :success
-#   end
-#
-#   test "should create document" do
-#     assert_difference('Document.count') do
-#       post :create, document: { name: @document.name }
-#     end
-#
-#     assert_redirected_to document_path(assigns(:document))
-#   end
-#
-#   test "should show document" do
-#     get :show, id: @document
-#     assert_response :success
-#   end
-#
-#   test "should get edit" do
-#     get :edit, id: @document
-#     assert_response :success
-#   end
-#
-#   test "should update document" do
-#     patch :update, id: @document, document: { name: @document.name }
-#     assert_redirected_to document_path(assigns(:document))
-#   end
-#
-#   test "should destroy document" do
-#     assert_difference('Document.count', -1) do
-#       delete :destroy, id: @document
-#     end
-#
-#     assert_redirected_to documents_path
-#   end
-# end
+require 'test_helper'
+
+class DocumentsControllerTest < ActionController::TestCase
+  setup do
+    create_users
+    create_cases
+    create_votes
+    create_case_documents
+    create_documents
+  end
+
+  teardown do
+    remove_documents
+    remove_case_documents
+    remove_votes
+    remove_cases
+    remove_users
+  end
+
+  test "should get index" do
+    get :index
+    assert_not_nil assigns(:documents)
+  end
+
+  test "should create a new document" do
+    assert_difference('Document.count') do
+      post :create, document: { name: "water_bill" }
+    end
+    assert_redirected_to documents_path
+    assert_equal "Successfully created document.", flash[:notice]
+    post :create, document: { name: nil}
+    assert_template :new
+  end
+
+  test "should get edit" do
+    get :edit, id: @doc1
+    assert_not_nil assigns(:document)
+    assert_response :success
+  end
+
+end

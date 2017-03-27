@@ -14,8 +14,6 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new', :as => :login
   get 'logout' => 'sessions#destroy', :as => :logout
 
-  get "shift/start_now" => "shifts#start_now", :as => :start_now
-  get "shift/end_now" => "shifts#end_now", :as => :end_now
 
   root :to => 'home#home'
 end

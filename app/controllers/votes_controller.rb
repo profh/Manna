@@ -2,8 +2,7 @@ class VotesController < ApplicationController
   before_action :set_vote, only: [:show, :edit, :update, :destroy]
 
   def index
-    @vote_yes = Vote.yes
-    @vote_no = Vote.no
+    @votes = Vote.all
   end
 
   def show
@@ -11,6 +10,22 @@ class VotesController < ApplicationController
 
   def new
     @vote = Vote.new
+  end
+
+  def edit
+  end
+
+  def create
+
+  end
+
+  def update
+
+  end
+
+  def destroy
+    @vote.destroy
+    redirect_to votes_path, notice: "Successfully removed vote: #{@vote.decision} for #{@vote.case.subject} from the system."
   end
 
   private
