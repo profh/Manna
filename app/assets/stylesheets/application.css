@@ -87,6 +87,9 @@ input, select, textarea, input[type="text"]{
 input, select, textarea, input[type="text"]:hover{
   transition: border .5s;
 }
+textarea{
+  height: 50%;
+}
 
 input[type="submit"]{
   background-color: #000;

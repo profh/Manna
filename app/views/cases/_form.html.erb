@@ -9,12 +9,12 @@
     <div class = "row">
       <div class="12 columns">
           <div id="case_documents" style = "width: 100%;">
-            <%= case_form.simple_fields_for :documents do |document_form| %>
+            <!-- <%= case_form.simple_fields_for :documents do |document_form| %> -->
               <%= render :partial => "document_fields", :locals => { :f => document_form } %>
             <% end %>
-            <p>
+            <!-- <p>
               <br /><%= case_form.link_to_add("Attach Files", :documents, :class => 'button primary full') %>
-            </p>
+            </p> -->
           </div>
         </div>
     </div>
