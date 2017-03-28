@@ -1,4 +1,4 @@
-<div id = "nav">
+<div class = "row" id = "nav">
   <div class = "row" id = "login">
     <% if logged_in? %>
       <%= current_user.proper_name %> | <%= current_user.role %><br>
@@ -13,10 +13,10 @@
     </div>
   </div>
   <div class = "row">
-    <div class = "six columns">
+    <div class = "one-half column">
       <p id ="blurb">ACAC Pittsburgh PA</p>
     </div>
-    <div class = "six columns omega">
+    <div class = "one-half column omega">
       <ul class = "nav_menu">
         <li><%= link_to 'Home', home_path %></li>
         <li><%= link_to 'Apply', new_case_path %></li>
