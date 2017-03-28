@@ -1,0 +1,4 @@
+<%= f.input :subject, placeholder: 'Paying for Medical Bill' %>
+<%= f.input :client_name, placeholder: 'John Doe' %>
+<%= f.input :deacon, :collection => User.active, :include_blank => true %>
+<%= f.input :summary, placeholder: 'Write description here...', as: :text, :input_html => { :rows => 5, :style => 'resize: none;'} %>

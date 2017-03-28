@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
 
   get 'home' => 'home#home', as: :home
+  get 'clients' => 'home#clients', as: :clients
+
 
   get 'user/edit' => 'users#edit', :as => :edit_current_user
   get 'signup' => 'users#new', :as => :signup

@@ -1,41 +1,26 @@
-<%= form_for(@case) do |f| %>
-  <% if @case.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@case.errors.count, "error") %> prohibited this case from being saved:</h2>
+<%= simple_nested_form_for @case, :html => { :class => '' } do |case_form| %>
+    <div class="row">
+      <div class="12 columns">
+        <fieldset>
+          <%= render :partial => "case_fields", :locals => { :f => case_form } %>
+        </fieldset>
+      </div>
+    </div>
+    <div class = "row">
+      <div class="12 columns">
+          <div id="case_documents" style = "width: 100%;">
+            <%= case_form.simple_fields_for :documents do |document_form| %>
+              <%= render :partial => "document_fields", :locals => { :f => document_form } %>
+            <% end %>
+            <p>
+              <br /><%= case_form.link_to_add("Attach Files", :documents, :class => 'button primary full') %>
+            </p>
+          </div>
+        </div>
+    </div>
 
-      <ul>
-      <% @case.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="form-actions">
+      <%= case_form.submit "Send", :class => 'button primary' %>
+      <%= link_to 'Cancel', cases_path, :class => 'button secondary' %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :client_name %><br>
-    <%= f.text_field :client_name %>
-  </div>
-  <div class="field">
-    <%= f.label :date_submitted %><br>
-    <%= f.date_select :date_submitted %>
-  </div>
-  <div class="field">
-    <%= f.label :summary %><br>
-    <%= f.text_field :summary %>
-  </div>
-  <div class="field">
-    <%= f.label :notes %><br>
-    <%= f.text_field :notes %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :deacon_id %><br>
-    <%= f.number_field :deacon_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

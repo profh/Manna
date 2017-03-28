@@ -1,8 +1,8 @@
 <div id = "nav">
   <div class = "row" id = "login">
     <% if logged_in? %>
+      <%= current_user.proper_name %> | <%= current_user.role %><br>
       <%= link_to 'Logout', logout_path %>
-      <br>[<%= current_user.proper_name %>:<%= current_user.role %>]
     <% else %>
       <%= link_to 'Login', login_path %>
     <% end %>
@@ -13,13 +13,18 @@
     </div>
   </div>
   <div class = "row">
-    <p class = "six columns" id ="blurb">ACAC Pittsburgh PA</p>
-    <ul class = "six columns">
-      <li><a>Clients</a></li>
-      <li><%= link_to 'Cases', cases_path %></li>
-      <li><%= link_to 'Apply', new_case_path %></li>
-      <li><%= link_to 'Home', home_path %></li>
-      <!-- need to find way to display clients -->
-    </ul>
+    <div class = "six columns">
+      <p id ="blurb">ACAC Pittsburgh PA</p>
+    </div>
+    <div class = "six columns omega">
+      <ul class = "nav_menu">
+        <li><%= link_to 'Home', home_path %></li>
+        <li><%= link_to 'Apply', new_case_path %></li>
+        <li><%= link_to 'Cases', cases_path %></li>
+        <li class = "last"><%= link_to 'Clients', clients_path %></li>
+        <!-- need to find way to display clients -->
+      </ul>
+    </div>
+
   </div>
 </div>
