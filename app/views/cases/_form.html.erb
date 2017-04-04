@@ -9,7 +9,7 @@
     <div class = "row">
       <div class="12 columns">
           <div id="case_documents" style = "width: 100%;">
-            <%= case_form.simple_fields_for :documents do |document_form| %>
+            <%= case_form.fields_for :documents do |document_form| %>
               <%= render :partial => "document_fields", :locals => { :f => document_form } %>
             <% end %>
 
