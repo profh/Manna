@@ -25,7 +25,7 @@ class CasesController < ApplicationController
   # GET /cases/new
   def new
     @case = Case.new
-    document = @case.documents.build
+    @case.documents.build
   end
 
   # GET /cases/1/edit
@@ -35,9 +35,11 @@ class CasesController < ApplicationController
   # POST /cases
   # POST /cases.json
   def create
+
     @case = Case.new(case_params)
     if @case.save
       # if saved to database
+
       flash[:notice] = "Successfully created case: #{@case.subject} for #{@case.client_name}."
       redirect_to @case # go to show case page
     else
@@ -72,6 +74,6 @@ class CasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def case_params
-      params.require(:case).permit(:client_name, :subject, :notes, :date_submitted, :summary, :status, :deacon_id)
+      params.require(:case).permit(:client_name, :subject, :notes, :date_submitted, :summary, :status, :deacon_id, :document_ids => [])
     end
 end

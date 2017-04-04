@@ -139,9 +139,34 @@ input[type="submit"]:hover{
 .last{
   margin-right: 0;
 }
+inpyt[type="file"]{
+  background-color: red;
+}
 
 
 /*========================= MOBILE =========================*/
+@media only screen and (max-width:940px){
+  div#title{
+    text-align: center;
+  }
+
+  .nav_menu{
+    text-align: center;
+  }
+
+  p#blurb{
+    text-align: center;
+  }
+
+  .navHalf{
+    text-align: center;
+
+
+  }
+}
+
+
+
 @media only screen and (max-device-width: 980px){
   div#title{
     text-align: center;

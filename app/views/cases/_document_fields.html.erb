@@ -1,13 +1,22 @@
-<div class="fields">
-  <div>
+<div class="row fields">
+  <div class = "six columns">
+    <%= f.label :name %>
+    <%= f.text_field :name, :input_html => { }%>
+
+  </div>
+  <div class = "six columns">
+    <%= f.label :attachment %>
+    <a href="#" class = "button primary" onclick="document.getElementById('fileID').click(); return false;" />Browse</a>
+    <%= f.file_field :attachment, :"capture" => 'camera', :"id" => 'fileID', :"style" => 'visibility: hidden;'%>
+    <!-- x icon to remove -->
+      <%= f.link_to_remove("x") %>
+  </div>
     <!-- fields -->
     <!-- <%= f.input :name , label: false, :input_html => {:"type" => 'file', :"accept" => 'image/*', :"capture" => 'camera', :"class" => 'button primary full'}%> -->
     <!-- <div class="field"> -->
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+
     <!-- </div> -->
-    <%= f.label :attachment %>
-    <%= f.file_field :attachment%>
+
 
   </div>
 </div>
