@@ -1,8 +1,13 @@
 <div class="fields">
   <div>
     <!-- fields -->
-    <%= f.input :name , :html => {:"type" => 'file', :"accept" => 'image/*', :"capture" => 'camera'}%>
-    <!-- x icon to remove -->
-    <%= f.link_to_remove("x") %>
+    <!-- <%= f.input :name , label: false, :input_html => {:"type" => 'file', :"accept" => 'image/*', :"capture" => 'camera', :"class" => 'button primary full'}%> -->
+    <!-- <div class="field"> -->
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    <!-- </div> -->
+    <%= f.label :attachment %>
+    <%= f.file_field :attachment%>
+
   </div>
 </div>

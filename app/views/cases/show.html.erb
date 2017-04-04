@@ -27,8 +27,29 @@
 
 <p>
   <strong>Deacon:</strong>
-  <%= @case.deacon_id %>
+  <%= @case.deacon.proper_name %>
 </p>
+
+<h3>Documents</h3>
+<table >
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <% if @documents_list.nil? %>
+    <p><em>There are no documents.</em></p>
+  <% else %>
+  <tbody>
+    <% @documents_list.each do |document| %>
+    <tr>
+      <!-- <td><%= link_to "#{document.name}", document.attachment_url %></td> -->
+      <td>document.name</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
 
 <%= link_to 'Edit', edit_case_path(@case) %> |
 <%= link_to 'Back', cases_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215003253) do
+ActiveRecord::Schema.define(version: 20170404021234) do
 
   create_table "case_documents", force: :cascade do |t|
     t.integer  "case_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20170215003253) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "attachment"
   end
 
   create_table "users", force: :cascade do |t|
