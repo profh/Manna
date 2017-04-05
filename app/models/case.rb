@@ -12,6 +12,7 @@ class Case < ActiveRecord::Base
   #scopes
   scope :chronological,    -> { order('date_submitted DESC') }
   scope :submitted,        -> { where(status: "submitted")}
+  scope :reviewed, -> {where("status != ?", "submitted")}
   scope :review_in_progress,        -> { where(status: "review in progress")}
   scope :approved,        -> { where(status: "approved")}
   scope :rejected,        -> { where(status: "rejected")}

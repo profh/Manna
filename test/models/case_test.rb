@@ -52,6 +52,11 @@ class CaseTest < ActiveSupport::TestCase
       assert_equal ["Gordon Ramsay"], Case.submitted.map{|e| e.client_name}
     end
 
+    should "show that there are 10 reviewed cases " do
+      assert_equal 6, Case.reviewed.size
+      # assert_equal ["Gordon Ramsay"], Case.reviewed.map{|e| e.client_name}
+    end
+
     should "show that there is one approved case " do
       assert_equal 1, Case.approved.size
       assert_equal ["Thomas Lu"], Case.approved.map{|e| e.client_name}
