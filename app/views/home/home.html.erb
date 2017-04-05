@@ -1,1 +1,144 @@
+<% if logged_in? %>
+<div class = "row">
+  <!-- if care deacon -->
+  <% if current_user.is_care_deacon? %>
 
+  <h1>Your Cases</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Client name</th>
+        <th>Date submitted</th>
+        <th>Summary</th>
+        <th>Notes</th>
+        <th>Status</th>
+        <th>Deacon</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% for c in @cases_user %>
+        <tr>
+          <td><%= c.client_name %></td>
+          <td><%= c.date_submitted %></td>
+          <td><%= c.summary %></td>
+          <td><%= c.notes %></td>
+          <td><%= c.status %></td>
+          <td><%= c.deacon_id %></td>
+          <td><%= link_to 'Show', c %></td>
+          <td><%= link_to 'Edit', edit_case_path(c) %></td>
+          <td><%= link_to 'Destroy', c, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        </tr>
+      <% end %>
+    </tbody>
+
+  </table>
+  <% else %>
+  <% if @need_review.empty?%>
+  <h1>Need Review</h1>
+  <p>None!</p>
+  <% else %>
+    <h1>Need Review</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Client name</th>
+          <th>Date submitted</th>
+          <th>Summary</th>
+          <th>Notes</th>
+          <th>Status</th>
+          <th>Deacon</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% for c in @need_review %>
+          <tr>
+            <td><%= c.client_name %></td>
+            <td><%= c.date_submitted %></td>
+            <td><%= c.summary %></td>
+            <td><%= c.notes %></td>
+            <td><%= c.status %></td>
+            <td><%= c.deacon_id %></td>
+            <td><%= link_to 'Show', c %></td>
+            <td><%= link_to 'Edit', edit_case_path(c) %></td>
+            <td><%= link_to 'Destroy', c, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+          </tr>
+        <% end %>
+      </tbody>
+
+    </table>
+
+    <% end %>
+    <% if @need_review.empty?%>
+    <h1>Reviewed Cases</h1>
+    <p>None!</p>
+    <% else %>
+      <h1>Reviewed Cases</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Client name</th>
+            <th>Date submitted</th>
+            <th>Summary</th>
+            <th>Notes</th>
+            <th>Status</th>
+            <th>Deacon</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for c in @reviewed %>
+            <tr>
+              <td><%= c.client_name %></td>
+              <td><%= c.date_submitted %></td>
+              <td><%= c.summary %></td>
+              <td><%= c.notes %></td>
+              <td><%= c.status %></td>
+              <td><%= c.deacon_id %></td>
+              <td><%= link_to 'Show', c %></td>
+              <td><%= link_to 'Edit', edit_case_path(c) %></td>
+              <td><%= link_to 'Destroy', c, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <% end %>
+  <% end %>
+
+
+
+</div>
+
+<% else %>
+<!-- login form from sessions -->
+<div class = "row">
+ <div class = "twelve columns" >
+  <h3>Log In</h3>
+    <%= form_tag sessions_path do %>
+      <div class="control-group">
+        <%= label_tag :email %>
+        <div class="controls">
+          <%= text_field_tag :email, params[:email] %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= label_tag :password %>
+        <div class="controls">
+          <%= password_field_tag :password %>
+        </div>
+      </div>
+      <div class="actions"><%= submit_tag("Log In", :class=>"button") %></div>
+    <% end %>
+ </div>
+</div>
+<% end %>

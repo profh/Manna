@@ -9,13 +9,17 @@
   </div>
   <div class = "row">
     <div id = "title">
+      <%= link_to(home_path) do %>
       <h1>MANNA</h1>
+      <% end %>
     </div>
   </div>
   <div class = "row">
+    <%= link_to(home_path) do %>
     <div class = "one-half column navHalf" >
       <p id ="blurb">ACAC Pittsburgh PA</p>
     </div>
+    <% end %>
     <div class = "one-half column omega navHalf" >
       <ul class = "nav_menu">
         <li><%= link_to 'Home', home_path %></li>
