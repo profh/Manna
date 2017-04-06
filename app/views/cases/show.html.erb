@@ -40,16 +40,15 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-
 <div class = "row">
-  <%= link_to 'Edit', edit_case_path(@case) %> |
-  <%= link_to 'Back', cases_path %>
+  <div class = "ten columns">
+    <%= link_to 'Edit', edit_case_path(@case) %> |
+    <%= link_to 'Back', cases_path %>
+  </div>
+  <div class = "two columns">
+    <!-- if can delete -->
+    <%= link_to 'Destroy', @case, method: :delete, data: { confirm: 'Are you sure?' }  %>
+
+  </div>
+
 </div>
