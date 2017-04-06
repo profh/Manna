@@ -1,54 +1,55 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Client name:</strong>
-  <%= @case.client_name %>
-</p>
+<div class = "row">
+  <div class = "twelve columns">
+    <h2> <%= @case.subject %></h2>
+  </div>
+</div>
+<div class = "row">
+  <div class = "twelve columns">
+    <h4>Votes: </h4>
+  </div>
+</div>
 
-<p>
-  <strong>Date submitted:</strong>
-  <%= @case.date_submitted %>
-</p>
+<div class = "row">
+  <div class = "eight columns">
+    <h4>Client: <%= @case.client_name %></h4>
+  </div>
+  <div class = "four columns">
+    <h4>Status: <%= @case.status %></h4>
+  </div>
+</div>
 
-<p>
-  <strong>Summary:</strong>
-  <%= @case.summary %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @case.notes %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @case.status %>
-</p>
-
-<p>
-  <strong>Deacon:</strong>
-  <%= @case.deacon.proper_name %>
-</p>
-
-<table >
-  <thead>
-    <tr>
-      <th>Document Name</th>
-    </tr>
-  </thead>
+<div class = "row">
+  <div class = "twelve columns">  <h4>Description</h4></div>
+  <div class = "twelve columns">  <p><%= @case.summary %></p></div>
+  <div class = "twelve columns"> <h4>Documents</h4>
   <% if @documents_list.nil? %>
     <p><em>There are no documents.</em></p>
   <% else %>
-  <tbody>
-    <% @documents_list.each do |document| %>
-    <tr>
-      <td><%= link_to "#{document.name}", document.attachment_url %></td>
-      <!-- <td>document.name</td> -->
-    </tr>
+  <% @documents_list.each do |document| %>
+    <ul>
+      <li><%= link_to "#{document.name}", document.attachment_url %></li>
+    </ul>
     <% end %>
-  </tbody>
-</table>
-<% end %>
+  <% end %>
+</div>
+  <div class = "twelve columns">  <h5>Notes: <%= @case.notes %> </h5></div>
+  <div class = "twelve columns">  <h5>Deacon: <%= @case.deacon.proper_name %> </h5></div>
 
-<%= link_to 'Edit', edit_case_path(@case) %> |
-<%= link_to 'Back', cases_path %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class = "row">
+  <%= link_to 'Edit', edit_case_path(@case) %> |
+  <%= link_to 'Back', cases_path %>
+</div>
