@@ -87,6 +87,8 @@ input, select, textarea, input[type="text"]{
 input, select, textarea, input[type="text"]:hover{
   transition: border .5s;
 }
+
+
 textarea{
   height: 50%;
 }
@@ -139,9 +141,12 @@ input[type="submit"]:hover{
 .last{
   margin-right: 0;
 }
-inpyt[type="file"]{
-  background-color: red;
+.attach_file{
+  border: none;
+  margin: 5px;
+  
 }
+
 
 
 /*========================= MOBILE =========================*/
