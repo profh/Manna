@@ -22,6 +22,8 @@
 
 @font-face { font-family: Henri-didot; src: url('henri-didot.regular.otf'); }
 
+
+
 *{
   font-family: AvenirNextLTPro;
 }
@@ -144,9 +146,18 @@ input[type="submit"]:hover{
 .attach_file{
   border: none;
   margin: 5px;
-  
 }
 
+#doc_list_title{
+  margin-bottom: 5px;
+}
+
+.yes_vote{
+  color: #89E894;
+}
+.no_vote{
+  color: #FF6861;
+}
 
 
 /*========================= MOBILE =========================*/

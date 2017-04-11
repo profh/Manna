@@ -8,6 +8,14 @@ class Ability
     if user.role? :admin
       # they get to do it all
       can :manage, :all
+
+    elsif user.role? :deacon
+      if user.is_care_deacon?
+
+      else
+
+      end
+
   end
-  
+
 end
