@@ -56,8 +56,9 @@ ActiveRecord::Schema.define(version: 20170404021234) do
     t.integer  "deacon_id"
     t.string   "decision"
     t.integer  "case_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.date     "date_submitted"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
 end

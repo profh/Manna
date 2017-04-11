@@ -2,9 +2,9 @@
   <!-- fields -->
   <div class = "five columns">
     <%= f.label :attachment %>
-    <!-- <a href="#" class = "button primary" onclick="document.getElementById('fileID').click(); return false;" />Browse</a>
-    <%= f.file_field :attachment, :"capture" => 'camera', :"id" => 'fileID', :"style" => 'visibility: hidden;'%> -->
-    <%= f.input :name , label: false, :input_html => {:"type" => 'file', :"accept" => 'image/*', :"capture" => 'camera', :"class" => 'attach_file'}%>
+    <!-- <a href="#" class = "button primary" onclick="document.getElementById('fileID').click(); return false;" />Browse</a> -->
+    <%= f.file_field :attachment, :"capture" => 'camera', :"id" => 'fileID', :"class" => 'attach_file'%>
+    <!-- <%= f.input :name , label: false, :input_html => {:"type" => 'file', :"accept" => 'image/*', :"capture" => 'camera', :"class" => 'attach_file'}%> -->
 
   </div>
 
