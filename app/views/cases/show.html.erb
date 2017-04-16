@@ -7,10 +7,14 @@
 </div>
 <div class = "row">
   <div class = "twelve columns">
+    <%= link_to new_vote_path, remote: true do%>
     <h4>Votes:
       <span class="yes_vote"><%= @case.votes.yes.count %></span> |
       <span class ="no_vote"><%= @case.votes.no.count%></span>
     </h4>
+    <% end %>
+    <div id="vote-form" style="display:none;"></div>
+
   </div>
 </div>
 
@@ -40,6 +44,7 @@
 </div>
   <div class = "twelve columns">  <h5>Notes: <%= @case.notes %> </h5></div>
   <div class = "twelve columns">  <h5>Deacon: <%= @case.deacon.proper_name %> </h5></div>
+  <div class = "twelve columns">  <h5>Date Submitted: <%= @case.date_submitted %> </h5></div>
 
 </div>
 

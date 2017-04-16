@@ -1,5 +1,6 @@
 class VotesController < ApplicationController
   before_action :set_vote, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :js
 
   def index
     @votes = Vote.all
@@ -16,7 +17,11 @@ class VotesController < ApplicationController
   end
 
   def create
+
+
     @vote = Vote.new(vote_params)
+    @vote.deacon_id = current_user.id
+    @vote.date_submitted = Date.current
 
     if @vote.save
       redirect_to votes_path, notice: "Successfully created vote."
@@ -36,7 +41,7 @@ class VotesController < ApplicationController
 
   def destroy
     @vote.destroy
-    redirect_to votes_path, notice: "Successfully removed vote: #{@vote.decision} for #{@vote.case.subject} from the system."
+    redirect_to votes_path, notice: "Successfully removed vote: #{@vote.decision} from the system."
   end
 
   private

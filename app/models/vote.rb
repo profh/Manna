@@ -3,11 +3,25 @@ class Vote < ActiveRecord::Base
   belongs_to :case
 
   validates_inclusion_of :decision, in: %w[yes no], :allow_blank => true, message: "is not an option"
+  # validates :case_id, uniqueness: { scope: :deacon_id, message: "You've voted on this case!" }
 
   #scopes
   scope :yes, -> { where(decision: "yes") }
   scope :no, -> {where(decision: "no")}
   # scope :blank, -> {where(decision: "" )}
 
+  #methods
+
+  def set_yes
+    self.decision = "yes"
+  end
+
+  def set_no
+    self.decision = "no"
+  end
+
+  def self.get_case_id
+      self.new.case_id
+  end
 
 end

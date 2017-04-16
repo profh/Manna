@@ -1,4 +1,4 @@
-<%= form_for(@vote) do |f| %>
+<!-- <%= form_for(@vote) do |f| %>
   <% if @vote.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@vote.errors.count, "error") %> prohibited this vote from being saved:</h2>
@@ -26,4 +26,12 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+<% end %> -->
+<%= simple_form_for @vote, remote: true do |f|   %>
+
+  <%= f.text_field  :decision, :id => 'decision', :style => 'visibility: hidden'%>
+  <a href="#" class = "button primary" onclick="document.getElementById('decision').value = 'yes'; console.log('yes...'); document.getElementById('voteSubmit').click(); return false;" >Yes</a>
+  <a href="#" class = "button primary" onclick="document.getElementById('decision').value = 'no'; console.log('yes...'); document.getElementById('voteSubmit').click(); return false;" >No</a>
+
+  <%= f.button :submit, :id => 'voteSubmit', :value => 'Done', :style => 'visibility: hidden'                           %>
 <% end %>

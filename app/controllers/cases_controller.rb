@@ -26,6 +26,7 @@ class CasesController < ApplicationController
   def new
     @case = Case.new
     @case.documents.build
+    @case.votes.build
   end
 
   # GET /cases/1/edit
@@ -39,7 +40,6 @@ class CasesController < ApplicationController
     @case = Case.new(case_params)
     if @case.save
       # if saved to database
-
       flash[:notice] = "Successfully created case: #{@case.subject} for #{@case.client_name}."
       redirect_to @case # go to show case page
     else

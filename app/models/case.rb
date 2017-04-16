@@ -1,5 +1,7 @@
 class Case < ActiveRecord::Base
   belongs_to :deacon, class_name: "User", foreign_key: "deacon_id"
+  before_create :set_date
+
   has_many :votes
   has_many :case_documents
   has_many :documents, through: :case_documents
@@ -23,6 +25,9 @@ class Case < ActiveRecord::Base
   scope :by_client_name,         -> { order("client_name ASC") }
 
   #methods
+  def set_date
+    self.date_submitted = Date.current
+  end
 
 
 end
