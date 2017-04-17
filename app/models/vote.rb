@@ -1,6 +1,6 @@
 class Vote < ActiveRecord::Base
   belongs_to :deacon, class_name: "User", foreign_key: "deacon_id"
-  belongs_to :case
+  belongs_to :case, foreign_key: "case_id"
 
   validates_inclusion_of :decision, in: %w[yes no], :allow_blank => true, message: "is not an option"
   # validates :case_id, uniqueness: { scope: :deacon_id, message: "You've voted on this case!" }
@@ -20,8 +20,5 @@ class Vote < ActiveRecord::Base
     self.decision = "no"
   end
 
-  def self.get_case_id
-      self.new.case_id
-  end
 
 end

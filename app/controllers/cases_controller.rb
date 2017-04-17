@@ -26,6 +26,7 @@ class CasesController < ApplicationController
   def new
     @case = Case.new
     @case.documents.build
+    # @case.votes.case_id = self.id
     @case.votes.build
   end
 

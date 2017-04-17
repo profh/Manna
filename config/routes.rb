@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :documents
   resources :case_documents
   resources :votes
+  # resources :cases do
+  #   resources :votes
+  # end
   resources :cases
   resources :users
   resources :sessions

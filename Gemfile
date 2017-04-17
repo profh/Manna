@@ -38,6 +38,8 @@ gem 'nested_form'
 gem 'skeleton-rails', :git => 'https://github.com/helios-technologies/skeleton-rails'
 gem 'carrierwave', '~> 1.0'
 gem 'responders', '~> 2.0'
+gem 'jquery-ui-rails'
+
 
 
 

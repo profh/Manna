@@ -10,17 +10,23 @@ class VotesController < ApplicationController
   end
 
   def new
+    # @case = Case.find(params[:case_id])
     @vote = Vote.new
   end
 
   def edit
   end
 
+
+
   def create
 
+    # @case = Case.find(params[:case_id]) # case_id is passed in the URL
+    # @vote = @case.build(params[:vote])
 
     @vote = Vote.new(vote_params)
     @vote.deacon_id = current_user.id
+    # @vote.case_id = Case.id
     @vote.date_submitted = Date.current
 
     if @vote.save
