@@ -39,6 +39,8 @@ gem 'skeleton-rails', :git => 'https://github.com/helios-technologies/skeleton-r
 gem 'carrierwave', '~> 1.0'
 gem 'responders', '~> 2.0'
 gem 'jquery-ui-rails'
+gem 'disqus_rails'
+
 
 
 
