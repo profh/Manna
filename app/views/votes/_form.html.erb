@@ -1,10 +1,13 @@
 
 <%= simple_form_for @vote, remote: true do |f|   %>
-
-  <%= f.text_field  :decision, :id => 'decision', :style => 'visibility: hidden'%>
-  <a href="#" class = "button primary" onclick="document.getElementById('decision').value = 'yes'; console.log('yes...'); document.getElementById('voteSubmit').click(); return false;" >Yes</a>
-  <a href="#" class = "button primary" onclick="document.getElementById('decision').value = 'no'; console.log('yes...'); document.getElementById('voteSubmit').click(); return false;" >No</a>
+<br>
+  <h1 id = "vote_popup">Vote</h1>
+  <br>
+  <%= f.text_field  :decision, :id => 'decision', :style => 'display:none;'%>
+  <a href="#" class = "num_yes" id = "vote_yes" onclick="document.getElementById('decision').value = 'yes'; console.log('yes...'); document.getElementById('voteSubmit').click(); return false;" >Yes</a>
+  |
+  <a href="#" class = "num_no" id = "vote_no" onclick="document.getElementById('decision').value = 'no'; console.log('no...'); document.getElementById('voteSubmit').click(); return false;" >No</a>
   <%= f.hidden_field :case_id %>
-
-  <%= f.button :submit, :id => 'voteSubmit', :value => 'Done', :style => 'visibility: hidden'                           %>
+<br>
+  <%= f.button :submit, :id => 'voteSubmit', :value => 'Done', :style => 'display:none;'                           %>
 <% end %>

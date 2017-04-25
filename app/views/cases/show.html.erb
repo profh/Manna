@@ -9,8 +9,8 @@
   <div class = "twelve columns">
     <%= link_to new_vote_path, remote: true do%>
     <h4>Votes:
-      <span class="yes_vote"><%= @case.votes.yes.count %></span> |
-      <span class ="no_vote"><%= @case.votes.no.count%></span>
+      <span class="num_yes"><%= @case.votes.yes.count %></span> |
+      <span class ="num_no"><%= @case.votes.no.count%></span>
     </h4>
     <% end %>
 <div id="vote-form" style="display:none;"></div>

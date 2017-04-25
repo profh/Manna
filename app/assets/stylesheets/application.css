@@ -18,7 +18,9 @@
 
 
  */
-
+/*==================================================
+FONTS
+==================================================*/
 
 @font-face { font-family: AvenirNextLTPro; src: url('AvenirNextLTPro-Regular.otf'); }
 
@@ -154,19 +156,34 @@ input[type="submit"]:hover{
   margin-bottom: 5px;
 }
 
-.yes_vote{
+.num_yes{
   color: #89E894;
 }
-.no_vote{
+.num_no{
   color: #FF6861;
 }
 
 #vote-form{
   z-index: 1000;
+  text-align: center;
+}
+#vote_yes{
+
+}
+#vote_no{
+
+}
+#vote_title{
 }
 
+/*==================================================
+JQUERY UI DIALOG STYLING
+==================================================*/
 
-/*========================= MOBILE =========================*/
+
+/*==================================================
+MOBILE
+==================================================*/
 @media only screen and (max-width:940px){
   div#title{
     text-align: center;
