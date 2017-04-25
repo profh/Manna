@@ -168,18 +168,24 @@ input[type="submit"]:hover{
   text-align: center;
 }
 #vote_yes{
-
+  color: #89E894;
+  padding-right: 10px;
 }
 #vote_no{
-
+  color: #FF6861;
+  padding-left: 10px;
 }
-#vote_title{
+.vote_section{
+  font-size: 24pt;
 }
 
 /*==================================================
 JQUERY UI DIALOG STYLING
 ==================================================*/
-
+.ui-widget-header, .ui-dialog-titlebar{
+  background-color: #fff;
+  border: none;
+}
 
 /*==================================================
 MOBILE

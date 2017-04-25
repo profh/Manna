@@ -1,7 +1,11 @@
 $('#vote-form').html("<%= j (render 'form') %>");
-$('#vote-form').dialog(350,
-  function(){
+
+$('#vote-form').dialog(
+  {
+    function() {
+
+    },
+    modal: true
+
   }
-
-
 );
