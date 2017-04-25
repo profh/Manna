@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :cases
   resources :users
   resources :sessions
-
+  get 'votes/new/:id' => 'votes#new', as: :new_vote_taken
 
   get 'home' => 'home#home', as: :home
   get 'clients' => 'home#clients', as: :clients

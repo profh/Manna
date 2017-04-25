@@ -11,14 +11,8 @@ class Vote < ActiveRecord::Base
   # scope :blank, -> {where(decision: "" )}
 
   #methods
+  def vote_exists
 
-  def set_yes
-    self.decision = "yes"
   end
-
-  def set_no
-    self.decision = "no"
-  end
-
 
 end

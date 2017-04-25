@@ -12,6 +12,7 @@ class VotesController < ApplicationController
   def new
     # @case = Case.find(params[:case_id])
     @vote = Vote.new
+    @vote.case_id = params[:id] unless params[:id].nil?
   end
 
   def edit
@@ -26,7 +27,7 @@ class VotesController < ApplicationController
 
     @vote = Vote.new(vote_params)
     @vote.deacon_id = current_user.id
-    # @vote.case_id = Case.id
+    # @vote.case_id = params[:case_id] unless params[:case_id].nil?
     @vote.date_submitted = Date.current
 
     if @vote.save
