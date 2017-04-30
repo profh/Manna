@@ -2,52 +2,67 @@
 
 
 <div class = "row">
-  <div class = "twelve columns">
+  <div class = "eight columns">
     <h2> <%= @case.subject %></h2>
   </div>
-</div>
-<div class = "row">
-  <div class = "twelve columns click_me">
-      <%= link_to new_vote_taken_path(@case.id), remote: true do%>
-        <h4>Votes:
-          <span class="num_yes"><%= @case.votes.yes.count %></span> |
-          <span class ="num_no"><%= @case.votes.no.count%></span>
-        </h4>
-      <% end %>
+  <div class = "four columns">
+    <div class = "row">
+      <div class = "twelve columns click_me">
+          <%= link_to new_vote_taken_path(@case.id), remote: true do%>
+            <h2>Votes:
+              <span class="num_yes"><%= @case.votes.yes.count %></span> |
+              <span class ="num_no"><%= @case.votes.no.count%></span>
+            </h2>
+          <% end %>
 
-    <div id="vote-form" style="display:none;"></div>
-  </div>
+        <div id="vote-form" style="display:none;"></div>
+      </div>
+    </div></div>
 </div>
+
 
 <div class = "row">
   <div class = "eight columns">
-    <h4>Client: <%= @case.client_name %></h4>
+    <h4 class = "description_below">Client</h4>
+    <p><%= @case.client_name %></p>
   </div>
   <div class = "four columns">
-    <h4>Status: <%= @case.status %></h4>
+    <h4 class = "description_below">Status</h4>
+    <p><%= @case.status %></p>
   </div>
 </div>
 
-<div class = "row">
-  <div class = "twelve columns">  <h4>Description</h4></div>
-  <div class = "twelve columns">  <p><%= @case.summary %></p></div>
-  <div class = "twelve columns"> <h4 id="doc_list_title">Documents</h4>
-  <% if @documents_list.nil? %>
-    <p><em>There are no documents.</em></p>
-  <% else %>
-  <ul>
-  <% @documents_list.each do |document| %>
-      <li><%= link_to "#{document.name}", document.attachment_url %></li>
+  <div class = "row">  <h4 class = "description_below">Description</h4></div>
+  <div class = "row">  <p><%= @case.summary %></p></div>
+  <div class = "row">
+    <div class = "four columns"> <h4 class = "description_below" >Documents</h4>
+    <% if @documents_list.nil? %>
+      <p><em>There are no documents.</em></p>
+    <% else %>
+    <ul>
+    <% @documents_list.each do |document| %>
+        <li><%= link_to "#{document.name}", document.attachment_url %></li>
+      <% end %>
+    </ul>
+
     <% end %>
-  </ul>
+    </div>
+    <div class = "four columns">
+      <h4 class = "description_below">Deacon</h4>
+      <p><%= @case.deacon.proper_name %> </p>
+    </div>
+    <div class = "four columns">
+      <h4 class = "description_below">Date Submitted</h4>
+      <p><%= @case.date_submitted %></p>
+    </div>
+  </div>
 
-  <% end %>
-</div>
-  <div class = "twelve columns">  <h5>Notes: <%= @case.notes %> </h5></div>
-  <div class = "twelve columns">  <h5>Deacon: <%= @case.deacon.proper_name %> </h5></div>
-  <div class = "twelve columns">  <h5>Date Submitted: <%= @case.date_submitted %> </h5></div>
+  <div class = "row">
+    <h4 class = "description_below">Notes</h4>
+    <p> <%= @case.notes ? nil : "None"%> </p>
+  </div>
 
-</div>
+
 
 <div class = "row">
   <div class = "ten columns">
