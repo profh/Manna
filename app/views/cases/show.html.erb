@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+
 <div class = "row">
   <div class = "twelve columns">
     <h2> <%= @case.subject %></h2>
@@ -7,13 +8,14 @@
 </div>
 <div class = "row">
   <div class = "twelve columns click_me">
-    <%= link_to new_vote_taken_path(@case.id), remote: true do%>
-    <h4 >Votes:
-      <span class="num_yes"><%= @case.votes.yes.count %></span> |
-      <span class ="num_no"><%= @case.votes.no.count%></span>
-    </h4>
-    <% end %>
-<div id="vote-form" style="display:none;"></div>
+      <%= link_to new_vote_taken_path(@case.id), remote: true do%>
+        <h4>Votes:
+          <span class="num_yes"><%= @case.votes.yes.count %></span> |
+          <span class ="num_no"><%= @case.votes.no.count%></span>
+        </h4>
+      <% end %>
+
+    <div id="vote-form" style="display:none;"></div>
   </div>
 </div>
 

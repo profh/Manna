@@ -178,6 +178,11 @@ input[type="submit"]:hover{
 .vote_section{
   font-size: 24pt;
 }
+.already_voted{
+  color:#FF6861;
+  font-style: italic;
+  margin: 0;
+}
 
 /*==================================================
 JQUERY UI DIALOG STYLING

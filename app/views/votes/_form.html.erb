@@ -1,5 +1,12 @@
 
 <%= simple_form_for @vote, remote: true do |f|   %>
+
+<% if @vote.errors.any? %>
+  <% @vote.errors.full_messages.each do |message| %>
+    <p class = "already_voted"><%= message %></p>
+  <% end %>
+<% end %>
+
 <br>
   <h1 id = "vote_popup">Vote</h1>
   <br>
@@ -12,5 +19,5 @@
   </div>
 
 <br>
-  <%= f.button :submit, :id => 'voteSubmit', :value => 'Done', :style => 'display:none;'                           %>
+  <%= f.button :submit, :id => 'voteSubmit', :value => 'Done', :style => 'display:none;' %>
 <% end %>

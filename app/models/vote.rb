@@ -3,16 +3,18 @@ class Vote < ActiveRecord::Base
   belongs_to :case, foreign_key: "case_id"
 
   validates_inclusion_of :decision, in: %w[yes no], :allow_blank => true, message: "is not an option"
-  # validates :case_id, uniqueness: { scope: :deacon_id, message: "You've voted on this case!" }
+  validates :case_id, uniqueness: { scope: :deacon_id, message: "You've voted on this case!" }
 
   #scopes
   scope :yes, -> { where(decision: "yes") }
   scope :no, -> {where(decision: "no")}
   # scope :blank, -> {where(decision: "" )}
 
-  #methods
-  def vote_exists
 
-  end
+  #methods
+  # def self.has_already_voted?
+  #   return Case.by_deacon(self.current_user.id).nil?
+  # end
+  #have this as if statement for vote form
 
 end

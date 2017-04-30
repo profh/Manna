@@ -7,7 +7,7 @@ class CasesController < ApplicationController
     # if logged_in, can only see own if care_d or can see all of them if financial_d
     if logged_in?
       if current_user.role?(:deacon) && current_user.is_care_deacon?
-        @cases = Case.for_deacon(user_id).chronological.paginate(page: params[:page]).per_page(10)
+        @cases = Case.for_deacon(current_user.id).chronological.paginate(page: params[:page]).per_page(10)
       else
         @cases = Case.chronological.paginate(page: params[:page]).per_page(10)
       end
