@@ -29,5 +29,8 @@ class Case < ActiveRecord::Base
     self.date_submitted = Date.current
   end
 
+  def self.search(search)
+    where("client_name LIKE ? OR summary LIKE ? OR subject LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
+  end
 
 end
