@@ -1,98 +1,105 @@
 <p id="notice"><%= notice %></p>
+<% if can? :read, @case %>
+  <div class = "row">
+    <div class = "eight columns">
+      <h2> <%= @case.subject %></h2>
+    </div>
+    <div class = "four columns">
+      <div class = "row">
+        <div class = "twelve columns click_me">
+            <%= link_to new_vote_taken_path(@case.id), remote: true do%>
+              <h2>Votes:
+                <span class="num_yes"><%= @case.votes.yes.count %></span> |
+                <span class ="num_no"><%= @case.votes.no.count%></span>
+              </h2>
+            <% end %>
 
-
-<div class = "row">
-  <div class = "eight columns">
-    <h2> <%= @case.subject %></h2>
+          <div id="vote-form" style="display:none;"></div>
+        </div>
+      </div></div>
   </div>
-  <div class = "four columns">
+
+
+  <div class = "row">
+    <div class = "eight columns">
+      <h4 class = "description_below">Client</h4>
+      <p><%= @case.client_name %></p>
+    </div>
+    <div class = "four columns">
+      <h4 class = "description_below">Status</h4>
+      <p><%= @case.status %></p>
+    </div>
+  </div>
+
+    <div class = "row">  <h4 class = "description_below">Description</h4></div>
+    <div class = "row">  <p><%= @case.summary %></p></div>
     <div class = "row">
-      <div class = "twelve columns click_me">
-          <%= link_to new_vote_taken_path(@case.id), remote: true do%>
-            <h2>Votes:
-              <span class="num_yes"><%= @case.votes.yes.count %></span> |
-              <span class ="num_no"><%= @case.votes.no.count%></span>
-            </h2>
-          <% end %>
+      <div class = "four columns"> <h4 class = "description_below" >Documents</h4>
+      <% if @documents_list.nil? %>
+        <p><em>There are no documents.</em></p>
+      <% else %>
+      <ul>
+      <% @documents_list.each do |document| %>
+          <li><%= link_to "#{document.name}", document.attachment_url %></li>
+        <% end %>
+      </ul>
 
-        <div id="vote-form" style="display:none;"></div>
-      </div>
-    </div></div>
-</div>
-
-
-<div class = "row">
-  <div class = "eight columns">
-    <h4 class = "description_below">Client</h4>
-    <p><%= @case.client_name %></p>
-  </div>
-  <div class = "four columns">
-    <h4 class = "description_below">Status</h4>
-    <p><%= @case.status %></p>
-  </div>
-</div>
-
-  <div class = "row">  <h4 class = "description_below">Description</h4></div>
-  <div class = "row">  <p><%= @case.summary %></p></div>
-  <div class = "row">
-    <div class = "four columns"> <h4 class = "description_below" >Documents</h4>
-    <% if @documents_list.nil? %>
-      <p><em>There are no documents.</em></p>
-    <% else %>
-    <ul>
-    <% @documents_list.each do |document| %>
-        <li><%= link_to "#{document.name}", document.attachment_url %></li>
       <% end %>
-    </ul>
+      </div>
+      <div class = "four columns">
+        <h4 class = "description_below">Deacon</h4>
+        <p><%= @case.deacon.proper_name %> </p>
+      </div>
+      <div class = "four columns">
+        <h4 class = "description_below">Date Submitted</h4>
+        <p><%= @case.date_submitted %></p>
+      </div>
+    </div>
 
-    <% end %>
+    <div class = "row">
+      <h4 class = "description_below">Notes</h4>
+      <p> <%= @case.notes ? nil : "None!"%> </p>
     </div>
-    <div class = "four columns">
-      <h4 class = "description_below">Deacon</h4>
-      <p><%= @case.deacon.proper_name %> </p>
-    </div>
-    <div class = "four columns">
-      <h4 class = "description_below">Date Submitted</h4>
-      <p><%= @case.date_submitted %></p>
-    </div>
-  </div>
+
+
 
   <div class = "row">
-    <h4 class = "description_below">Notes</h4>
-    <p> <%= @case.notes ? nil : "None!"%> </p>
+    <div class = "ten columns">
+      <% if can? :edit, @case %>
+        <%= link_to 'Edit', edit_case_path(@case) %> |
+      <% end %> 
+      <%= link_to 'Back', cases_path %>
+    </div>
+    <% if can? :destroy, @case %>
+      <div class = "two columns">
+        <!-- if can delete -->
+        <%= link_to 'Destroy', @case, method: :delete, data: { confirm: 'Are you sure?' }  %>
+      </div>
+    <% end %>
   </div>
 
+  <!-- DISQUS -->
+  <div id="disqus_thread"></div>
+  <script>
 
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 
-<div class = "row">
-  <div class = "ten columns">
-    <%= link_to 'Edit', edit_case_path(@case) %> |
-    <%= link_to 'Back', cases_path %>
-  </div>
-  <div class = "two columns">
-    <!-- if can delete -->
-    <%= link_to 'Destroy', @case, method: :delete, data: { confirm: 'Are you sure?' }  %>
-  </div>
-</div>
+  // var disqus_config = function () {
+  // this.page.url = '<%= url_for(@case) %>';  // Replace PAGE_URL with your page's canonical URL variable
+  // this.page.identifier = '<%= @case.id %>' // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  // };
 
-<!-- DISQUS -->
-<div id="disqus_thread"></div>
-<script>
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://manna-1.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-
-// var disqus_config = function () {
-// this.page.url = '<%= url_for(@case) %>';  // Replace PAGE_URL with your page's canonical URL variable
-// this.page.identifier = '<%= @case.id %>' // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-// };
-
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://manna-1.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<% else %>
+  <h3>You don't have permission to view this</h3>
+<% end %>
