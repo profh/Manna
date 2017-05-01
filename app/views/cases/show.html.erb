@@ -52,7 +52,7 @@
       </div>
       <div class = "four columns">
         <h4 class = "description_below">Date Submitted</h4>
-        <p><%= @case.date_submitted %></p>
+        <p><%= @case.date_submitted.to_formatted_s(:rfc822) %></p>
       </div>
     </div>
 
@@ -67,7 +67,7 @@
     <div class = "ten columns">
       <% if can? :edit, @case %>
         <%= link_to 'Edit', edit_case_path(@case) %> |
-      <% end %> 
+      <% end %>
       <%= link_to 'Back', cases_path %>
     </div>
     <% if can? :destroy, @case %>
