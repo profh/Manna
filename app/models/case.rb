@@ -33,4 +33,8 @@ class Case < ActiveRecord::Base
     where("client_name LIKE ? OR summary LIKE ? OR subject LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
   end
 
+  def has_voted?(user)#takes all the votes in that particular case, and see if the current user's id
+    self.votes.map(&:deacon_id).include?(user.id)
+  end
+
 end

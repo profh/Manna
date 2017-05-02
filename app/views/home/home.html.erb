@@ -35,6 +35,7 @@
           <th>Subject</th>
           <th>Client Name</th>
           <th>Date submitted</th>
+          <th>Voted</th>
         </tr>
       </thead>
       <tbody>
@@ -42,7 +43,8 @@
           <tr>
             <td><%= link_to "#{c.subject}", c %></td>
             <td><%= c.client_name %></td>
-            <td><%= c.date_submitted %></td>
+            <td><%= c.date_submitted.to_formatted_s(:rfc822) %></td>
+            <td><%= c.has_voted?(current_user)%></td>
           </tr>
         <% end %>
       </tbody>
@@ -68,7 +70,7 @@
             <tr>
               <td><%= link_to "#{c.subject}", c %></td>
               <td><%= c.client_name %></td>
-              <td><%= c.date_submitted %></td>
+              <td><%= c.date_submitted.to_formatted_s(:rfc822) %></td>
             </tr>
           <% end %>
         </tbody>

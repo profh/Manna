@@ -204,6 +204,9 @@ MOBILE
   div#title{
     text-align: center;
   }
+  input[type="submit"]#search_button{
+    max-width:100%;
+  }
 
   .nav_menu{
     text-align: center;
