@@ -5,6 +5,8 @@ require 'minitest/rails'
 require 'minitest/reporters'
 require 'contexts'
 require 'minitest_extensions'
+require 'simplecov'
+SimpleCov.start
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.

@@ -44,7 +44,7 @@ class CaseTest < ActiveSupport::TestCase
     #running the tests:
     should "show that the chronological scope works" do
       assert_equal 7, Case.chronological.size
-      assert_equal ["Gordon Ramsay", "Jonathan Tsao", "Evan Li", "Thomas Lu", "Molly Chou", "Spencer Poon", "Catherine Zeng"], Case.chronological.map{|e| e.client_name}
+      assert_equal ["Gordon Ramsay", "Jonathan Tsao", "Evan Li", "Thomas Lu", "Spencer Poon", "Molly Chou", "Catherine Zeng"], Case.chronological.map{|e| e.client_name}
     end
 
     should "show that there is one submitted case " do
@@ -92,6 +92,16 @@ class CaseTest < ActiveSupport::TestCase
 
     should "show that the by_client_name scope works" do
       assert_equal ["Catherine Zeng", "Evan Li", "Gordon Ramsay", "Jonathan Tsao", "Molly Chou", "Spencer Poon", "Thomas Lu"], Case.by_client_name.map{|e| e.client_name}
+    end
+
+    should "show that the search method works" do
+      assert_equal 1, Case.search("Gordon").size
+    end
+
+    should "show that the has_voted method works" do
+      assert_equal true, Case.first.has_voted?(@jason)
+      assert_equal false, Case.second.has_voted?(@paula)
+
     end
 
   end

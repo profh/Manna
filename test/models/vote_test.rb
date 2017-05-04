@@ -38,5 +38,5 @@ class VoteTest < ActiveSupport::TestCase
       assert_equal "PaulaT@gmail.com", @vote_paula.deacon.email
     end
 
-
+  end
 end
