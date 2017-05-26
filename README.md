@@ -8,7 +8,8 @@ As Prof H would say:
 Qapla'
 ```
 
-## Installation
+
+## Installation and setup
 Since this is a rails app, once you clone this repo all you need to do is run
 ```
 bundle install
